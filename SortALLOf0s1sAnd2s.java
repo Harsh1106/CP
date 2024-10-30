@@ -33,7 +33,7 @@ public class SortALLOf0s1sAnd2s {
         one.next = twoHead.next;
         two.next = null;
         Node newHead = zeroHead.next;
-        return newHead;
+        return newHead; 
     }
 
     public static void printList(Node head) {
