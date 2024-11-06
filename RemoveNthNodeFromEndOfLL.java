@@ -12,25 +12,19 @@ class ListNode {
 }
 public class RemoveNthNodeFromEndOfLL {
     public static ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head == null || head.next == null) return null;
-        int count = 0;
-        ListNode temp = head;
-        while(temp != null){
-            count++;
-            temp = temp.next;
+        ListNode fast = head, slow = head;
+        for(int i = 0 ; i < n ; i++){
+            fast = fast.next;
         }
-        if(count == n){
-            ListNode newNode = head.next;
-            return newNode;
+        if(fast == null) return head.next;
+
+        while(fast.next != null){
+            fast = fast.next;
+            slow = slow.next;
         }
-        temp = head;
-        int len = count - n;
-        while(temp != null){
-            len--;
-            if(len == 0) break;
-            temp = temp.next;
-        }
-        temp.next = temp.next.next;
+        // ListNode delete = slow.next;
+        slow.next = slow.next.next;
+        // delete = null;
         return head;
     }
     public static void printList(ListNode head) {
