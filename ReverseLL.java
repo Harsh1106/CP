@@ -9,15 +9,14 @@ class ListNode {
 
 public class ReverseLL {
     public static ListNode reverseList(ListNode head) {
-        ListNode temp = head;
-        ListNode prev = null;
-        while(temp != null){
-            ListNode front = temp.next;
-            temp.next = prev;
-            prev = temp;
-            temp = front;
+        if(head == null || head.next == null){
+            return head;
         }
-        return prev;
+        ListNode newNode = reverseList(head.next);
+        ListNode front = head.next;
+        front.next = head;
+        head.next = null;
+        return newNode;
     }
 
     // Helper method to print the linked list
