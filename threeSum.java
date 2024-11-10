@@ -2,16 +2,18 @@ import java.util.*;
 
 public class threeSum {
     public static List<List<Integer>> sum(int[] nums) {
+        // Better Approach
         Set<List<Integer>> st = new HashSet<>();
         for(int i = 0 ; i < nums.length ; i++){
+            HashSet<Integer> temp = new HashSet<>();
             for(int j = i + 1 ; j < nums.length ; j++){
-                for(int k = j + 1 ; k < nums.length ; k++){
-                    if(nums[i] + nums[j] + nums[k] == 0){
-                        List<Integer> temp = Arrays.asList(nums[i], nums[j], nums[k]);
-                        temp.sort(null);
-                        st.add(temp);
-                    }
+                int third = -(nums[i] + nums[j]);
+                if(temp.contains(third)){
+                    List<Integer> al = Arrays.asList(nums[i], nums[j], third);
+                    al.sort(null);
+                    st.add(al);
                 }
+                temp.add(nums[j]);
             }
         }
         List<List<Integer>> ans = new ArrayList<>(st);
