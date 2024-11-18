@@ -1,14 +1,13 @@
 public class MoveAllZerosToEnd {
     static void pushZerosToEnd(int[] arr) {
-        int actualLength = arr.length, nonZeroCount = 0, pos = 0;
-        for(int i = 0 ; i < arr.length ; i++){
+        int count = 0, n = arr.length;
+        for(int i = 0 ; i < n ; i++){
             if(arr[i] != 0){
-                arr[pos++] = arr[i];
-                nonZeroCount++;
+                arr[count++] = arr[i];
             }
         }
-        for(int i = nonZeroCount ; i < actualLength ; i++){
-            arr[i] = 0;
+        while(count < n){
+            arr[count++] = 0;
         }
     }
     public static void main(String[] args) {
