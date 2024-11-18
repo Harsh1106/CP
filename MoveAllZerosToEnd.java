@@ -3,11 +3,10 @@ public class MoveAllZerosToEnd {
         int count = 0, n = arr.length;
         for(int i = 0 ; i < n ; i++){
             if(arr[i] != 0){
-                arr[count++] = arr[i];
+                int temp = arr[i];
+                arr[i] = arr[count];
+                arr[count++] = temp;
             }
-        }
-        while(count < n){
-            arr[count++] = 0;
         }
     }
     public static void main(String[] args) {
