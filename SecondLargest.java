@@ -1,11 +1,12 @@
 public class SecondLargest{
     public static int getSecondLargest(int[] arr) {
         int first = -1, second = -1;
-        for(int i = 0 ; i < arr.length ; i++){
-            if(arr[i] > first) first = arr[i];
-        }
-        for(int i = 0 ; i < arr.length ; i++){
-            if(arr[i] > second && arr[i] != first) second = arr[i];
+        for(int num : arr){
+            if(num > first){
+                second = first;
+                first = num;
+            }
+            else if(first != num && num > second) second = num;
         }
         return second;
     }
