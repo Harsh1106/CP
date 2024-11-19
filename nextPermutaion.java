@@ -23,7 +23,7 @@ public class nextPermutaion {
             Arrays.sort(arr);
             return;
         }
-        for(int i = n - 1 ; i >= idx ; i--){
+        for(int i = n - 1 ; i > idx ; i--){
             if(arr[i] > arr[idx]){
                 int temp = arr[i];
                 arr[i] = arr[idx];
@@ -34,7 +34,7 @@ public class nextPermutaion {
         rev(arr, idx + 1, n - 1);
     }
     public static void main(String[] args) {
-        int[] arr = {2,3,1};
+        int[] arr = {3, 4, 2, 5, 1};
         nextPermutation(arr);
         for(int i = 0 ; i < arr.length ; i++){
             System.out.print(arr[i]+" ");
