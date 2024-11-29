@@ -1,27 +1,21 @@
 public class AddBinary{
     public static String addBinary(String a, String b) {
-        int len1 = a.length() - 1;
-        int len2 = b.length() - 1;
-        int c = 0, base = 2;
         StringBuilder sb = new StringBuilder();
-        while(len1 >= 0 || len2 >= 0){
-            int t1 = 0, t2 = 0, sum = 0;
-            if(len1 >= 0)
-                t1 = a.charAt(len1--) - '0';
-            if(len2 >= 0)
-                t2 = b.charAt(len2--) - '0';
-            sum = t1 + t2 + c;
-            if(sum >= base){
-                c = 1;
-                sum = sum - base;
+        int idxA = s1.length() - 1, idxB = s2.length() - 1;
+        int c = 0;
+        while(idxA >= 0 || idxB >= 0 || c > 0){
+            if(idxA >= 0){
+                c += s1.charAt(idxA--) - '0';
             }
-            else{
-                c = 0;
+            if(idxB >= 0){
+                c += s2.charAt(idxB--) - '0';
             }
-            sb.append(sum);
+            sb.append(c%2);
+            c /= 2;
         }
-        if(c == 1) sb.append(c);
-        return sb.reverse().toString();
+        String s = sb.reverse().toString();
+        int one = s.indexOf('1');
+        return (one == -1) ? "0" : s.substring(one);
     }
     public static void main(String[] args) {
         String a = "11", b = "1";
