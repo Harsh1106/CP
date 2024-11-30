@@ -1,5 +1,5 @@
 public class AddBinary{
-    public static String addBinary(String a, String b) {
+    public static String addBinary(String s1, String s2) {
         StringBuilder sb = new StringBuilder();
         int idxA = s1.length() - 1, idxB = s2.length() - 1;
         int c = 0;
